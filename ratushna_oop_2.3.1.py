@@ -109,7 +109,7 @@ leaf = Leaf(color="green", radius=50, angle=80)
 stem = Stem(color="green", length=220, thickness=8)
 
 flower = Flower(petal=petal, leaf=leaf, stem=stem, petal_count=6, center_color="yellow")
-with open('number of flowers', 'r',) as file:
+with open('number_of_flowers.txt', 'r',) as file:
     number = int(file.read())
     print(number)
     x = 0
