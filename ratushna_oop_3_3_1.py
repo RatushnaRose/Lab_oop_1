@@ -96,7 +96,7 @@ class Trapeze(Figure):
         term4 = (parts[0] - parts[1] - parts[2] + parts[3])
 
         numerator = abs(term1 * term2 * term3 * term4)
-        if numerator <= 0:
+        if numerator <= 0 or base_diff == 0:
             print("Trapeze does not exist")
             return 0
         return math.sqrt(numerator) / (2 * base_diff)
@@ -176,6 +176,7 @@ class Parallelogram(Figure):
 class Ball(Figure):
     def __init__(self, parts, is_three_dimensional=True):
         self.parts = parts
+        self.is_three_dimensional = is_three_dimensional
     def perimeter(self, parts):
         return 2* math.pi * parts[0]
 
@@ -202,9 +203,10 @@ class Ball(Figure):
 class TriangularPyramid(Triangle):
     def __init__(self, parts, is_three_dimensional=True):
         self.parts = parts
+        self.is_three_dimensional = is_three_dimensional
 
     def perimeter(self, parts):
-        return super().perimeter()
+        return super().perimeter(parts)
 
     def square(self, parts):
         self.parts = parts
@@ -241,7 +243,7 @@ class TriangularPyramid(Triangle):
 
 
 
-filenames = ["input01.txt", "input02.txt", "input03.txt"]
+filenames = ["input01.txt", "input02 (1).txt", "input03 (1).txt"]
 for filename in filenames:
     with open(filename) as f:
         for line in f:
